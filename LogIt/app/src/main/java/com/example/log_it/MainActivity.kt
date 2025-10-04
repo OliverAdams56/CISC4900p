@@ -36,94 +36,110 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.log_it.ui.theme.LogItTheme
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+class MainActivity : ComponentActivity()
+{
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent {
-            LogItTheme{
+        setContent{
+            LogItTheme {
                 AppHome()
             }
         }
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
 @Composable
-fun AppHome() {
-    LogItTheme(darkTheme = true) {
-        Scaffold(topBar = { AppTopBar() }, bottomBar = { AppBottomBar() })
-        { paddingValues -> AppContent(paddingValues) }
+fun AppHome()
+{
+    LogItTheme(
+        darkTheme = true
+    ) {
+        Scaffold(
+            topBar = {
+                AppTopBar()
+            },
+            bottomBar = {
+                AppBottomBar()
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = { /**/ },
+                    shape = CircleShape
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Add,
+                        contentDescription = "Floating Action Button"
+                    )
+                }
+            }
+        ) { paddingValues ->
+            AppContent(
+                paddingValues = paddingValues
+            )
+        }
     }
 }
 
 @Composable
-fun AppTopBar(){
+fun AppTopBar()
+{
     TopAppBar(
         title = {
             Text(
-                "Log-It",
+                text = "Log-It",
                 fontSize = 50.sp,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()  ,
+                modifier = Modifier.fillMaxWidth(),
                 letterSpacing = 0.sp,
-                fontStyle = FontStyle.Italic,
-                // color = TODO(),
-                // fontWeight = TODO(), Boldness level of the text
+                fontStyle = FontStyle.Italic
             )
-        }, //title setting ends
-        scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(), //what happens to the top bar when i scroll
-        //            modifier = TODO(),
-        //            navigationIcon = TODO(),
-        //            actions = TODO(),
-        //            colors = TODO(),
+        },
+        scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     )
 }
 
+//make the bottom app car a bit more rounded
 @Composable
-fun AppBottomBar(){
+fun AppBottomBar()
+{
     BottomAppBar(
         actions = {
-            IconButton( onClick = {/**/}) {
-                Icon(Icons.TwoTone.Search, contentDescription = "Search Button")
+            IconButton(
+                onClick = { /**/ }
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.Search,
+                    contentDescription = "Search Button"
+                )
             }
-
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = {/**/ },
-                shape = CircleShape,
-//                containerColor = TODO(),
-//                contentColor = TODO(),
-//                elevation = TODO(),
-//                interactionSource = TODO()
-            ){
-                Icon(Icons.TwoTone.Add, contentDescription = "Floating Action Button")
-            }
-        }
-
-//        modifier = TODO(), layout/size/shape of bar
-//        containerColor = TODO(), background color
-//        contentColor = TODO(), text/icon color
-//        contentPadding = TODO(), spacing inside bar
-//        content = TODO()
     )
 }
 
 @Composable
-fun AppContent(paddingValues: PaddingValues) {
+fun AppContent(paddingValues: PaddingValues)
+{
     Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
-    ){
+    ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(3.5.dp)
         ) {
-            Text("Hello from content area!")
-            HorizontalDivider(thickness = .2.dp /*color = Color.Blue*/)
-            Text("this part is in a column which means it all automatically lines up")
+            Text(text = "Hello from content area!")
+            HorizontalDivider(
+                thickness = 0.2.dp
+                // color = Color.Blue
+            )
+            Text(text = "This part is in a column which means it all automatically lines up")
         }
     }
 }
