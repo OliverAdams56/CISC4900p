@@ -31,3 +31,106 @@ class MainActivity : ComponentActivity()
         }
     }
 }
+
+/*
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
+@Composable
+fun AppHome()
+{
+    LogItTheme(
+        darkTheme = true
+    ) {
+        Scaffold(
+            topBar = {
+                AppTopBar()
+            },
+            bottomBar = {
+                AppBottomBar()
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = { /**/ },
+                    shape = CircleShape
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Add,
+                        contentDescription = "Floating Action Button"
+                    )
+                }
+            }
+        ) { paddingValues ->
+            AppContent(
+                paddingValues = paddingValues
+            )
+        }
+    }
+}
+*/
+
+/*
+@Composable
+fun AppTopBar()
+{
+    TopAppBar(
+        title = {
+            Text(
+                text = "Log-It",
+                fontSize = 50.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+                letterSpacing = 0.sp,
+                fontStyle = FontStyle.Italic
+            )
+        },
+        scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    )
+}
+*/
+/*
+/*
+* TODO make the bottom app bar a bit more rounded
+*/
+@Composable
+fun AppBottomBar()
+{
+    BottomAppBar(
+        actions = {
+            IconButton(
+                onClick = { /**/ }
+            ) {
+                Icon(
+                    imageVector = Icons.TwoTone.Search,
+                    contentDescription = "Search Button"
+                )
+            }
+        },
+        tonalElevation = 100.dp
+    )
+}
+*/
+/*
+@Composable
+fun AppContent(paddingValues: PaddingValues)
+{
+    val state = rememberLazyListState(0)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues)
+    ) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(50.dp),
+            contentPadding = PaddingValues(bottom = 100.dp),
+            state = state
+            ) {
+            items(300) { index ->
+                Text(text = "Item: $index")
+            }
+        }
+    }
+}
+*/
