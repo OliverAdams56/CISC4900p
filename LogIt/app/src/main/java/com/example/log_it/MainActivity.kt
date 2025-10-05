@@ -1,3 +1,11 @@
+/*
+* MainActivity.kt
+* Entry point of the application.
+* Initializes edge-to-edge display,
+* sets the app theme,
+* and loads the main composable screen (AppHome).
+*/
+
 @file:OptIn(ExperimentalMaterial3Api::class)
 
 package com.example.log_it
@@ -6,35 +14,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.Add
-import androidx.compose.material.icons.twotone.Search
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.log_it.ui.theme.LogItTheme
+import com.example.log_it.ui.screen.AppHome
 
 class MainActivity : ComponentActivity()
 {
@@ -50,6 +32,7 @@ class MainActivity : ComponentActivity()
     }
 }
 
+/*
 @Preview(
     showBackground = true,
     showSystemUi = true
@@ -85,7 +68,9 @@ fun AppHome()
         }
     }
 }
+*/
 
+/*
 @Composable
 fun AppTopBar()
 {
@@ -103,8 +88,8 @@ fun AppTopBar()
         scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     )
 }
-
-
+*/
+/*
 /*
 * TODO make the bottom app bar a bit more rounded
 */
@@ -125,7 +110,8 @@ fun AppBottomBar()
         tonalElevation = 100.dp
     )
 }
-
+*/
+/*
 @Composable
 fun AppContent(paddingValues: PaddingValues)
 {
@@ -147,3 +133,4 @@ fun AppContent(paddingValues: PaddingValues)
         }
     }
 }
+*/
