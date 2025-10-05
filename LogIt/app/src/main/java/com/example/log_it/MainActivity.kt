@@ -8,11 +8,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Add
@@ -20,7 +21,6 @@ import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -104,7 +104,10 @@ fun AppTopBar()
     )
 }
 
-//make the bottom app car a bit more rounded
+
+/*
+* TODO make the bottom app bar a bit more rounded
+*/
 @Composable
 fun AppBottomBar()
 {
@@ -119,27 +122,28 @@ fun AppBottomBar()
                 )
             }
         },
+        tonalElevation = 100.dp
     )
 }
 
 @Composable
 fun AppContent(paddingValues: PaddingValues)
 {
+    val state = rememberLazyListState(0)
     Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
     ) {
-        Column(
+        LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(3.5.dp)
-        ) {
-            Text(text = "Hello from content area!")
-            HorizontalDivider(
-                thickness = 0.2.dp
-                // color = Color.Blue
-            )
-            Text(text = "This part is in a column which means it all automatically lines up")
+            verticalArrangement = Arrangement.spacedBy(50.dp),
+            contentPadding = PaddingValues(bottom = 100.dp),
+            state = state
+            ) {
+            items(300) { index ->
+                Text(text = "Item: $index")
+            }
         }
     }
 }
