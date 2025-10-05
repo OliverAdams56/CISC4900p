@@ -4,6 +4,6 @@
 */
 package com.example.log_it.ui.components
 
-class AppBottomBar
+fun AppBottomBar()
 {
 }
