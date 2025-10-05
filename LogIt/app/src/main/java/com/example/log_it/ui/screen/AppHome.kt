@@ -16,14 +16,12 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.log_it.ui.components.*
-
 
 @Preview(
     showBackground = true,
