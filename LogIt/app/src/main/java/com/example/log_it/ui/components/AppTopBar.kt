@@ -5,3 +5,6 @@
 
 package com.example.log_it.ui.components
 
+fun AppTopBar()
+{
+}

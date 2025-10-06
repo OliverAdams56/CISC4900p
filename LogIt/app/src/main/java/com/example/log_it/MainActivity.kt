@@ -33,44 +33,6 @@ class MainActivity : ComponentActivity()
 }
 
 /*
-@Preview(
-    showBackground = true,
-    showSystemUi = true
-)
-@Composable
-fun AppHome()
-{
-    LogItTheme(
-        darkTheme = true
-    ) {
-        Scaffold(
-            topBar = {
-                AppTopBar()
-            },
-            bottomBar = {
-                AppBottomBar()
-            },
-            floatingActionButton = {
-                FloatingActionButton(
-                    onClick = { /**/ },
-                    shape = CircleShape
-                ) {
-                    Icon(
-                        imageVector = Icons.TwoTone.Add,
-                        contentDescription = "Floating Action Button"
-                    )
-                }
-            }
-        ) { paddingValues ->
-            AppContent(
-                paddingValues = paddingValues
-            )
-        }
-    }
-}
-*/
-
-/*
 @Composable
 fun AppTopBar()
 {
@@ -109,28 +71,5 @@ fun AppBottomBar()
         },
         tonalElevation = 100.dp
     )
-}
-*/
-/*
-@Composable
-fun AppContent(paddingValues: PaddingValues)
-{
-    val state = rememberLazyListState(0)
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues)
-    ) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(50.dp),
-            contentPadding = PaddingValues(bottom = 100.dp),
-            state = state
-            ) {
-            items(300) { index ->
-                Text(text = "Item: $index")
-            }
-        }
-    }
 }
 */
