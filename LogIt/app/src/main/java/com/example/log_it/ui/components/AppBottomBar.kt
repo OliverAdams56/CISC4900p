@@ -16,16 +16,13 @@ import androidx.compose.ui.unit.dp
 fun AppBottomBar()
 {
     BottomAppBar(
-        actions = {
-            IconButton(
-                onClick = { /**/ }
-            ) {
-                Icon(
-                    imageVector = Icons.TwoTone.Search,
-                    contentDescription = "Search Button"
-                )
-            }
-        },
-        tonalElevation = 100.dp
+        actions =
+            {
+                IconButton(onClick = { /**/ })
+                {
+                    Icon(imageVector = Icons.TwoTone.Search, contentDescription = "Search Button")
+                }
+            },
+        tonalElevation = 8.dp
     )
 }
