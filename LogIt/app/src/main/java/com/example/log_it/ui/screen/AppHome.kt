@@ -34,7 +34,7 @@ fun AppHome()
 
         Scaffold(
             topBar = { AppTopBar(currentScreen = currentScreen) },
-            bottomBar = {AppBottomBar(onHomeClick = { currentScreen = "home" }, onMoviesClick = { currentScreen = "movies" }, onShowsClick = { currentScreen = "shows" })},
+            bottomBar = {AppBottomBar(currentScreen = currentScreen, onHomeClick = { currentScreen = "home" }, onMoviesClick = { currentScreen = "movies" }, onShowsClick = { currentScreen = "shows" })},
             floatingActionButton =
                 {
                     FloatingActionButton(onClick = {
