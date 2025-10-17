@@ -19,7 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.log_it.ui.components.AppBottomBar
-import com.example.log_it.ui.components.AppContent
+import com.example.log_it.ui.components.AppHomeScreen
 import com.example.log_it.ui.components.AppTopBar
 import com.example.log_it.ui.theme.LogItTheme
 
@@ -51,7 +51,7 @@ fun AppHome()
         )
         { paddingValues ->
             when (currentScreen) {
-                "home" -> AppContent(paddingValues)
+                "home" -> AppHomeScreen(paddingValues)
                 "movies" -> AppMoviesScreen(paddingValues)
                 "shows" -> AppShowsScreen(paddingValues)
             }
