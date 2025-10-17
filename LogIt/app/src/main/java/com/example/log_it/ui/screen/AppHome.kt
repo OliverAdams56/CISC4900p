@@ -14,6 +14,10 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.example.log_it.ui.components.AppBottomBar
 import com.example.log_it.ui.components.AppContent
 import com.example.log_it.ui.components.AppTopBar
@@ -24,20 +28,34 @@ fun AppHome()
 {
     LogItTheme()
     {
+        // State to track the current screen: "home", "movies", or "shows"
+        // Manual state: control which screen shows via a variable.
+        var currentScreen by remember { mutableStateOf("home") }
+
         Scaffold(
-            topBar = {AppTopBar()},
-            bottomBar = {AppBottomBar()},
+            topBar = { AppTopBar(currentScreen = currentScreen) },
+            bottomBar = {AppBottomBar(onHomeClick = { currentScreen = "home" }, onMoviesClick = { currentScreen = "movies" }, onShowsClick = { currentScreen = "shows" })},
             floatingActionButton =
-            {
-                FloatingActionButton(onClick = {/**/ })
                 {
-                    Icon(imageVector = Icons.Filled.Add, contentDescription = "FAB Add Button")
+                    FloatingActionButton(onClick = {
+                        when(currentScreen) {
+                            "home" -> { /* Add home action */ }
+                            "movies" -> { /* Add a new movie */ }
+                            "shows" -> { /* Add a new show */ }
+                        }
+                    })
+                    {
+                        Icon(imageVector = Icons.Filled.Add, contentDescription = "FAB Add Button")
+                    }
                 }
-            }
         )
-        {
-            paddingValues ->
-            AppContent(paddingValues = paddingValues)
+        { paddingValues ->
+            when (currentScreen) {
+                "home" -> AppContent(paddingValues)
+                "movies" -> AppMoviesScreen(paddingValues)
+                "shows" -> AppShowsScreen(paddingValues)
+            }
+
         }
     }
 }
