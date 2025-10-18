@@ -32,7 +32,6 @@ fun AppHome()
     var showAddMovieDialog by remember { mutableStateOf(false) }
     var showAddShowDialog by remember { mutableStateOf(false) }
 
-
     Scaffold(
         topBar = { AppTopBar(currentScreen = currentScreen) },
         bottomBar = {AppBottomBar(currentScreen = currentScreen, onHomeClick = { currentScreen = "home" }, onMoviesClick = { currentScreen = "movies" }, onShowsClick = { currentScreen = "shows" })},

@@ -38,37 +38,53 @@ fun AppMoviesScreen(paddingValues: PaddingValues, movies: List<MovieItem>)
 {
     val state = rememberLazyListState()
 
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
-        contentPadding = PaddingValues(bottom = 100.dp),
-        state = state
-    ){
-        items(movies) { item ->
-            Card(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 16.dp),
-                shape = MaterialTheme.shapes.medium,
-                elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
-            ) {
-                Column(modifier = Modifier.padding(16.dp)) {
-                    Text(
-                        text = "🎬 ${item.title}",
-                        fontSize = 20.sp,
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "💬 Why: ${item.reason}",
-                        fontSize = 16.sp,
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text(
-                        text = "⭐ Rating: ${item.rating}/10",
-                        fontSize = 16.sp,
-                    )
+    if (movies.isEmpty()) {
+        androidx.compose.foundation.layout.Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            contentAlignment = androidx.compose.ui.Alignment.Center
+        ) {
+            Text(
+                text = "No movies added yet. Tap + to add one!",
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+        }
+    } else {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+            contentPadding = PaddingValues(bottom = 100.dp),
+            state = state
+        ){
+            item { Spacer(modifier = Modifier.height(1.dp)) }
+            items(movies) { item ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp),
+                    shape = MaterialTheme.shapes.medium,
+                    elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "🎬 ${item.title}",
+                            fontSize = 20.sp,
+                        )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = "💬 Why: ${item.reason}",
+                            fontSize = 16.sp,
+                        )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = "⭐ Rating: ${item.rating}/10",
+                            fontSize = 16.sp,
+                        )
+                    }
                 }
             }
         }
