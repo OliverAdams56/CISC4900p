@@ -2,7 +2,10 @@ package com.example.log_it.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Light theme (black on white)
+// ----------------------------
+// Light theme
+// ----------------------------
+
 val primaryLight = Color(0xFF64B5F6)
 val onPrimaryLight = Color(0xFF0D1B2A)
 val primaryContainerLight = Color(0xFF90CAF9)
@@ -23,10 +26,11 @@ val onErrorLight = Color(0xFFFFFFFF)
 val errorContainerLight = Color(0xFFFFDAD6)
 val onErrorContainerLight = Color(0xFF410002)
 
-val backgroundLight = Color(0xFF7A5A3A)
-val onBackgroundLight = Color(0xFFFFFFFF)
-val surfaceLight = Color(0xFF8C6B4A)
-val onSurfaceLight = Color(0xFFFFFFFF)
+val backgroundLight = Color(0xFFFFFFFF)
+val onBackgroundLight = Color(0xFF000000)
+
+val surfaceLight = Color(0xFFFFFFFF)
+val onSurfaceLight = Color(0xFF000000)
 
 val surfaceVariantLight = Color(0xFFE0E0E0)
 val onSurfaceVariantLight = Color(0xFF303030)
@@ -46,7 +50,9 @@ val surfaceContainerLight = Color(0xFFE9EFED)
 val surfaceContainerHighLight = Color(0xFFE3EAE7)
 val surfaceContainerHighestLight = Color(0xFFDDE4E1)
 
-// Dark theme (white on black)
+// ----------------------------
+// Dark theme
+// ----------------------------
 val primaryDark = Color(0xFF8C5424) // THE COLOR OF THE HIGHLIGHTED TEXT IN BOTTOM APP BAR AND ALERT DIALOG
 val onPrimaryDark = Color(0xFF0D1B2A)
 val primaryContainerDark = Color(0xFF8C5424) // FAB OUTER COLOR

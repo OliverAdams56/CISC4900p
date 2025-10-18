@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -24,6 +25,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -113,12 +115,13 @@ fun AddShowDialog(
                 androidx.compose.material3.OutlinedTextField(
                     value = reason,
                     onValueChange = { reason = it },
-                    label = { Text("Why You Like It") }
+                    label = { Text("Why You Like It (optional)") }
                 )
                 androidx.compose.material3.OutlinedTextField(
                     value = rating,
                     onValueChange = { rating = it },
-                    label = { Text("Rating (1–10)") }
+                    label = { Text("Rating (1–10)") },
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
             }
         },
@@ -126,7 +129,7 @@ fun AddShowDialog(
             androidx.compose.material3.TextButton(
                 onClick = {
                     val numericRating = rating.toIntOrNull() ?: 0
-                    if (title.isNotBlank() && reason.isNotBlank() && numericRating in 1..10) {
+                    if (title.isNotBlank()  && numericRating in 1..10) {
                         onAddShow(title, reason, numericRating)
                     }
                 }
