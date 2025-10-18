@@ -25,12 +25,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-
 @Composable
 fun AppBottomBar(currentScreen: String, onHomeClick: () -> Unit, onMoviesClick: () -> Unit, onShowsClick: () -> Unit)
 {
     BottomAppBar(
-        tonalElevation = 8.dp
+        tonalElevation = 8.dp,
     ){
         Row(modifier = Modifier
             .fillMaxWidth()
@@ -62,21 +61,3 @@ fun AppBottomBar(currentScreen: String, onHomeClick: () -> Unit, onMoviesClick: 
         }
     }
 }
-
-//        actions =
-//            {
-//                TextButton(onClick = onHomeClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "home") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)) {
-//                    Icon(imageVector = Icons.Outlined.Home, contentDescription = "Home Screen Button")
-//                    Text("Home", fontSize = 20.sp)
-//                }
-//
-//                TextButton(onClick = onMoviesClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "movie") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface))
-//                {
-//                    Icon(imageVector = Icons.Outlined.Favorite, contentDescription = "Movie Screen Button")
-//                    Text("Movies", fontSize = 20.sp)
-//                }
-//                TextButton(onClick = onShowsClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "show") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)) {
-//                    Icon(imageVector = Icons.Outlined.Star, contentDescription = "Show Screen Button")
-//                    Text("Shows", fontSize = 20.sp)
-//                }
-//            },

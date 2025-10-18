@@ -34,10 +34,9 @@ fun AppTopBar(currentScreen: String)
                     fontSize = 50.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
-                    letterSpacing = 0.sp,
                     fontStyle = FontStyle.Italic
                 )
             },
-        scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+        scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(),
     )
 }
