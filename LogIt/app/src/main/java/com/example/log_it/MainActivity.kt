@@ -16,7 +16,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.ExperimentalMaterial3Api
 import com.example.log_it.ui.theme.LogItTheme
-import com.example.log_it.ui.screen.AppHome
+import com.example.log_it.ui.components.AppHome
 
 class MainActivity : ComponentActivity()
 {
