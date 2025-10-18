@@ -56,10 +56,11 @@ fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>)
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
             contentPadding = PaddingValues(bottom = 100.dp),
             state = state
         ){
+            item { Spacer(modifier = Modifier.height(1.dp)) }
             items(shows) { item ->
                 Card(
                     modifier = Modifier
@@ -73,12 +74,12 @@ fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>)
                             text = "🎬 ${item.title}",
                             fontSize = 20.sp,
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             text = "💬 Why: ${item.reason}",
                             fontSize = 16.sp,
                         )
-                        Spacer(modifier = Modifier.height(8.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             text = "⭐ Rating: ${item.rating}/10",
                             fontSize = 16.sp,
