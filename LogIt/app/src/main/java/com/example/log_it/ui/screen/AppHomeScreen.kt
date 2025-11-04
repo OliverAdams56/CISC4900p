@@ -3,7 +3,7 @@
 * Defines the scrollable content area for the app.
 * Uses LazyColumn to display a list of items with padding and spacing.
 */
-package com.example.log_it.ui.components
+package com.example.log_it.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,8 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AppHomeScreen(paddingValues: PaddingValues)
-{
+fun AppHomeScreen(paddingValues: PaddingValues) {
     val state = rememberLazyListState(0)
     Box(
         modifier = Modifier

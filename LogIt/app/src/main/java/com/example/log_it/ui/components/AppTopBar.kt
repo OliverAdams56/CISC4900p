@@ -19,24 +19,22 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun AppTopBar(currentScreen: String)
-{
+fun AppTopBar(currentScreen: String) {
     TopAppBar(
-        title =
-            {
-                Text(
-                    text = when(currentScreen) {
-                        "home" -> "Log-It"
-                        "movies" -> "Movies"
-                        "shows" -> "Shows"
-                        else -> "Log-It"
-                    },
-                    fontSize = 50.sp,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
-                    fontStyle = FontStyle.Italic
-                )
-            },
+        title = {
+            Text(
+                text = when (currentScreen) {
+                    "home" -> "Log-It"
+                    "movies" -> "Movies"
+                    "shows" -> "Shows"
+                    else -> "Log-It"
+                },
+                fontSize = 50.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(),
+                fontStyle = FontStyle.Italic
+            )
+        },
         scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(),
     )
 }

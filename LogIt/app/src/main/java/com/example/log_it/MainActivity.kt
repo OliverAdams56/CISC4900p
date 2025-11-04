@@ -18,13 +18,11 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import com.example.log_it.ui.theme.LogItTheme
 import com.example.log_it.ui.components.AppHome
 
-class MainActivity : ComponentActivity()
-{
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent{
+        setContent {
             LogItTheme {
                 AppHome()
             }

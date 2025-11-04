@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -30,14 +31,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 data class MovieItem(
-    val title: String,
-    val reason: String,
-    val rating: Int
+    val title: String, val reason: String, val rating: Int
 )
 
 @Composable
-fun AppMoviesScreen(paddingValues: PaddingValues, movies: List<MovieItem>)
-{
+fun AppMoviesScreen(paddingValues: PaddingValues, movies: List<MovieItem>) {
     val state = rememberLazyListState()
 
     if (movies.isEmpty()) {
@@ -61,12 +59,12 @@ fun AppMoviesScreen(paddingValues: PaddingValues, movies: List<MovieItem>)
             verticalArrangement = Arrangement.spacedBy(6.dp),
             contentPadding = PaddingValues(bottom = 100.dp),
             state = state
-        ){
+        ) {
             item { Spacer(modifier = Modifier.height(1.dp)) }
             items(movies) { item ->
                 Card(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                     shape = MaterialTheme.shapes.medium,
                     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
@@ -95,8 +93,7 @@ fun AppMoviesScreen(paddingValues: PaddingValues, movies: List<MovieItem>)
 
 @Composable
 fun AddMovieDialog(
-    onDismiss: () -> Unit,
-    onAddMovie: (String, String, Int) -> Unit
+    onDismiss: () -> Unit, onAddMovie: (String, String, Int) -> Unit
 ) {
     var title by remember { mutableStateOf("") }
     var reason by remember { mutableStateOf("") }
@@ -110,13 +107,11 @@ fun AddMovieDialog(
                 androidx.compose.material3.OutlinedTextField(
                     value = title,
                     onValueChange = { title = it },
-                    label = { Text("Movie Title") }
-                )
+                    label = { Text("Movie Title") })
                 androidx.compose.material3.OutlinedTextField(
                     value = reason,
                     onValueChange = { reason = it },
-                    label = { Text("Why You Like It (optional)") }
-                )
+                    label = { Text("Why You Like It (optional)") })
                 androidx.compose.material3.OutlinedTextField(
                     value = rating,
                     onValueChange = { rating = it },
@@ -132,8 +127,7 @@ fun AddMovieDialog(
                     if (title.isNotBlank() && numericRating in 1..10) {
                         onAddMovie(title, reason, numericRating)
                     }
-                }
-            ) {
+                }) {
                 Text("Add")
             }
         },
@@ -141,6 +135,5 @@ fun AddMovieDialog(
             androidx.compose.material3.TextButton(onClick = onDismiss) {
                 Text("Cancel")
             }
-        }
-    )
+        })
 }

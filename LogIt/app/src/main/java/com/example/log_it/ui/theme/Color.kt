@@ -53,7 +53,8 @@ val surfaceContainerHighestLight = Color(0xFFDDE4E1)
 // ----------------------------
 // Dark theme
 // ----------------------------
-val primaryDark = Color(0xFF8C5424) // THE COLOR OF THE HIGHLIGHTED TEXT IN BOTTOM APP BAR AND ALERT DIALOG
+val primaryDark =
+    Color(0xFF8C5424) // THE COLOR OF THE HIGHLIGHTED TEXT IN BOTTOM APP BAR AND ALERT DIALOG
 val onPrimaryDark = Color(0xFF0D1B2A)
 val primaryContainerDark = Color(0xFF8C5424) // FAB OUTER COLOR
 val onPrimaryContainerDark = Color(0xFF59614F) // FAB INNER COLOR
@@ -76,7 +77,8 @@ val onErrorContainerDark = Color(0xFFFFDAD6)
 val backgroundDark = Color(0xFF59614F) // THE COLOR OF THE MAIN APP SCREEN PART
 val onBackgroundDark = Color(0xFFE0E0E0) // THE COLOR OF THE COLOR IN THE BACKGROUND
 val surfaceDark = Color(0xFF59614F) // TOP APP BAR COLOR
-val onSurfaceDark = Color(0xFFE0E0E0) // THE COLOR OF THE COLOR IN TOP APP BAR AND THE COLOR OF THE TEXT IN MOVIE COMPOST AND STUFF
+val onSurfaceDark =
+    Color(0xFFE0E0E0) // THE COLOR OF THE COLOR IN TOP APP BAR AND THE COLOR OF THE TEXT IN MOVIE COMPOST AND STUFF
 
 val surfaceVariantDark = Color(0xFF3F4947)
 val onSurfaceVariantDark = Color(0xFFBEC9C6)

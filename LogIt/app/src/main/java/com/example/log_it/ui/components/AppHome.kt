@@ -21,40 +21,38 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.log_it.ui.screen.AddMovieDialog
 import com.example.log_it.ui.screen.AddShowDialog
+import com.example.log_it.ui.screen.AppHomeScreen
 import com.example.log_it.ui.screen.AppMoviesScreen
 import com.example.log_it.ui.screen.AppShowsScreen
 import com.example.log_it.ui.screen.MovieItem
 import com.example.log_it.ui.screen.ShowItem
 
 @Composable
-fun AppHome()
-{
+fun AppHome() {
     var currentScreen by remember { mutableStateOf("home") }
     val movies = remember { mutableStateListOf<MovieItem>() }
     val shows = remember { mutableStateListOf<ShowItem>() }
     var showAddMovieDialog by remember { mutableStateOf(false) }
     var showAddShowDialog by remember { mutableStateOf(false) }
 
-    Scaffold(
-        topBar = { AppTopBar(currentScreen = currentScreen) },
-        bottomBar = {AppBottomBar(currentScreen = currentScreen, onHomeClick = { currentScreen = "home" }, onMoviesClick = { currentScreen = "movies" }, onShowsClick = { currentScreen = "shows" })},
-        floatingActionButton =
-            {
-                if (currentScreen != "home")
-                {
-                    FloatingActionButton(onClick = {
-                        when (currentScreen) {
-                            "movies" -> showAddMovieDialog = true
-                            "shows" -> showAddShowDialog = true
-                        }
-                    })
-                    {
-                        Icon(imageVector = Icons.Filled.Add, contentDescription = "FAB Add Button")
-                    }
+    Scaffold(topBar = { AppTopBar(currentScreen = currentScreen) }, bottomBar = {
+        AppBottomBar(
+            currentScreen = currentScreen,
+            onHomeClick = { currentScreen = "home" },
+            onMoviesClick = { currentScreen = "movies" },
+            onShowsClick = { currentScreen = "shows" })
+    }, floatingActionButton = {
+        if (currentScreen != "home") {
+            FloatingActionButton(onClick = {
+                when (currentScreen) {
+                    "movies" -> showAddMovieDialog = true
+                    "shows" -> showAddShowDialog = true
                 }
+            }) {
+                Icon(imageVector = Icons.Filled.Add, contentDescription = "FAB Add Button")
             }
-    )
-    { paddingValues ->
+        }
+    }) { paddingValues ->
         when (currentScreen) {
             "home" -> AppHomeScreen(paddingValues)
             "movies" -> AppMoviesScreen(paddingValues, movies)
@@ -66,8 +64,7 @@ fun AppHome()
                 onAddMovie = { title, reason, rating ->
                     movies.add(MovieItem(title, reason, rating))
                     showAddMovieDialog = false
-                }
-            )
+                })
         }
         if (showAddShowDialog) {
             AddShowDialog(
@@ -75,8 +72,7 @@ fun AppHome()
                 onAddShow = { title, reason, rating ->
                     shows.add(ShowItem(title, reason, rating))
                     showAddShowDialog = false
-                }
-            )
+                })
         }
     }
 }

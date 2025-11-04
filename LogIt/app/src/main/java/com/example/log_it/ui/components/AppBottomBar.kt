@@ -26,35 +26,54 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun AppBottomBar(currentScreen: String, onHomeClick: () -> Unit, onMoviesClick: () -> Unit, onShowsClick: () -> Unit)
-{
+fun AppBottomBar(
+    currentScreen: String,
+    onHomeClick: () -> Unit,
+    onMoviesClick: () -> Unit,
+    onShowsClick: () -> Unit
+) {
     BottomAppBar(
         tonalElevation = 8.dp,
-    ){
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp), horizontalArrangement = Arrangement.SpaceBetween
-        ){
-            TextButton(onClick = onHomeClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "home") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface))
-            {
-                Column(horizontalAlignment = Alignment.CenterHorizontally){
-                    Icon(imageVector = Icons.Outlined.Home, contentDescription = "Home Screen Button")
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            TextButton(
+                onClick = onHomeClick,
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "home") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Outlined.Home, contentDescription = "Home Screen Button"
+                    )
                     Text("Home", fontSize = 14.sp)
                 }
             }
 
-            TextButton(onClick = onMoviesClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "movies") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface))
-            {
-                Column(horizontalAlignment = Alignment.CenterHorizontally){
-                    Icon(imageVector = Icons.Outlined.Favorite, contentDescription = "Movie Screen Button")
+            TextButton(
+                onClick = onMoviesClick,
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "movies") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Outlined.Favorite,
+                        contentDescription = "Movie Screen Button"
+                    )
                     Text("Movies", fontSize = 14.sp)
                 }
             }
-            TextButton(onClick = onShowsClick, colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "shows") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface))
-            {
+            TextButton(
+                onClick = onShowsClick,
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "shows") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+            ) {
 
-                Column(horizontalAlignment = Alignment.CenterHorizontally){
-                    Icon(imageVector = Icons.Outlined.Star, contentDescription = "Show Screen Button")
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Icon(
+                        imageVector = Icons.Outlined.Star, contentDescription = "Show Screen Button"
+                    )
                     Text("Shows", fontSize = 14.sp)
                 }
             }

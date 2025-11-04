@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -30,14 +31,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 data class ShowItem(
-    val title: String,
-    val reason: String,
-    val rating: Int
+    val title: String, val reason: String, val rating: Int
 )
 
 @Composable
-fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>)
-{
+fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>) {
     val state = rememberLazyListState()
 
     if (shows.isEmpty()) {
@@ -61,12 +59,12 @@ fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>)
             verticalArrangement = Arrangement.spacedBy(6.dp),
             contentPadding = PaddingValues(bottom = 100.dp),
             state = state
-        ){
+        ) {
             item { Spacer(modifier = Modifier.height(1.dp)) }
             items(shows) { item ->
                 Card(
                     modifier = Modifier
-                        .fillMaxSize()
+                        .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                     shape = MaterialTheme.shapes.medium,
                     elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
@@ -95,8 +93,7 @@ fun AppShowsScreen(paddingValues: PaddingValues, shows: List<ShowItem>)
 
 @Composable
 fun AddShowDialog(
-    onDismiss: () -> Unit,
-    onAddShow: (String, String, Int) -> Unit
+    onDismiss: () -> Unit, onAddShow: (String, String, Int) -> Unit
 ) {
     var title by remember { mutableStateOf("") }
     var reason by remember { mutableStateOf("") }
@@ -110,13 +107,11 @@ fun AddShowDialog(
                 androidx.compose.material3.OutlinedTextField(
                     value = title,
                     onValueChange = { title = it },
-                    label = { Text("Show Title") }
-                )
+                    label = { Text("Show Title") })
                 androidx.compose.material3.OutlinedTextField(
                     value = reason,
                     onValueChange = { reason = it },
-                    label = { Text("Why You Like It (optional)") }
-                )
+                    label = { Text("Why You Like It (optional)") })
                 androidx.compose.material3.OutlinedTextField(
                     value = rating,
                     onValueChange = { rating = it },
@@ -129,11 +124,10 @@ fun AddShowDialog(
             androidx.compose.material3.TextButton(
                 onClick = {
                     val numericRating = rating.toIntOrNull() ?: 0
-                    if (title.isNotBlank()  && numericRating in 1..10) {
+                    if (title.isNotBlank() && numericRating in 1..10) {
                         onAddShow(title, reason, numericRating)
                     }
-                }
-            ) {
+                }) {
                 Text("Add")
             }
         },
@@ -141,6 +135,5 @@ fun AddShowDialog(
             androidx.compose.material3.TextButton(onClick = onDismiss) {
                 Text("Cancel")
             }
-        }
-    )
+        })
 }
