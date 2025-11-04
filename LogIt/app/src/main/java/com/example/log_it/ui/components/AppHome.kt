@@ -27,26 +27,36 @@ import com.example.log_it.ui.screen.AppShowsScreen
 import com.example.log_it.ui.screen.MovieItem
 import com.example.log_it.ui.screen.ShowItem
 
+sealed class Screen(val route: String){
+    object Home : Screen("home")
+    object Movies : Screen("movies")
+    object Shows : Screen("shows")
+}
+
 @Composable
 fun AppHome() {
-    var currentScreen by remember { mutableStateOf("home") }
+    var currentScreen by remember { mutableStateOf<Screen>(Screen.Home)}
     val movies = remember { mutableStateListOf<MovieItem>() }
     val shows = remember { mutableStateListOf<ShowItem>() }
     var showAddMovieDialog by remember { mutableStateOf(false) }
     var showAddShowDialog by remember { mutableStateOf(false) }
 
-    Scaffold(topBar = { AppTopBar(currentScreen = currentScreen) }, bottomBar = {
+    Scaffold(
+        topBar = { AppTopBar(currentScreen = currentScreen) },
+        bottomBar = {
         AppBottomBar(
             currentScreen = currentScreen,
-            onHomeClick = { currentScreen = "home" },
-            onMoviesClick = { currentScreen = "movies" },
-            onShowsClick = { currentScreen = "shows" })
+            onHomeClick = { currentScreen = Screen.Home },
+            onMoviesClick = { currentScreen = Screen.Movies },
+            onShowsClick = { currentScreen = Screen.Shows }
+        )
     }, floatingActionButton = {
-        if (currentScreen != "home") {
+        if (currentScreen != Screen.Home) {
             FloatingActionButton(onClick = {
                 when (currentScreen) {
-                    "movies" -> showAddMovieDialog = true
-                    "shows" -> showAddShowDialog = true
+                    Screen.Movies  -> showAddMovieDialog = true
+                    Screen.Shows -> showAddShowDialog = true
+                    else -> {}
                 }
             }) {
                 Icon(imageVector = Icons.Filled.Add, contentDescription = "FAB Add Button")
@@ -54,9 +64,9 @@ fun AppHome() {
         }
     }) { paddingValues ->
         when (currentScreen) {
-            "home" -> AppHomeScreen(paddingValues)
-            "movies" -> AppMoviesScreen(paddingValues, movies)
-            "shows" -> AppShowsScreen(paddingValues, shows)
+            Screen.Home -> AppHomeScreen(paddingValues)
+            Screen.Movies -> AppMoviesScreen(paddingValues, movies)
+            Screen.Shows -> AppShowsScreen(paddingValues, shows)
         }
         if (showAddMovieDialog) {
             AddMovieDialog(

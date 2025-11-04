@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun AppBottomBar(
-    currentScreen: String,
+    currentScreen: Screen,
     onHomeClick: () -> Unit,
     onMoviesClick: () -> Unit,
     onShowsClick: () -> Unit
@@ -43,7 +43,7 @@ fun AppBottomBar(
         ) {
             TextButton(
                 onClick = onHomeClick,
-                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "home") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == Screen.Home) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
@@ -55,7 +55,7 @@ fun AppBottomBar(
 
             TextButton(
                 onClick = onMoviesClick,
-                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "movies") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == Screen.Movies) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
@@ -67,7 +67,7 @@ fun AppBottomBar(
             }
             TextButton(
                 onClick = onShowsClick,
-                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == "shows") MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
+                colors = ButtonDefaults.textButtonColors(contentColor = if (currentScreen == Screen.Shows) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface)
             ) {
 
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
